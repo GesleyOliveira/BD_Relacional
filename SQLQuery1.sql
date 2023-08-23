@@ -141,6 +141,13 @@ values ('12', 'Itu', 'NN');
 insert into cidade (Codcidade, Nomecidade, cdestado)
 values ('13', 'Itapira', 'NN');
 
+insert into estado values ('GE','Gesley');
+
+insert into cidade (Codcidade, Nomecidade, cdestado)
+values ('55', 'Gesley', 'GE');
+
+Update cidade set Codcidade='13' where codcidade='55';
+
 Update Cidade Set cdestado='SP' where cdestado='NN';
 
 Delete from cidade where Nomecidade='Itapira';
