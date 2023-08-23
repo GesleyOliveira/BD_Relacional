@@ -97,6 +97,14 @@ insert into Cidade values (1,'Votorantim','SP');
 
 insert into estado values ('PR','Não Cadastrado');
 
+insert into estado values ('RJ','Rio de Janeiro');
+
+insert into estado values ('MG','Minas Gerais');
+
+insert into estado values ('SC','Santa Catarina');
+
+insert into estado values ('NN','Não Cadastrado');
+
 insert into cidade (Codcidade, Nomecidade, cdestado)
 values('3','Curitiba','PR'); 
 
@@ -106,7 +114,40 @@ values('4','Maringá','PR');
 insert into cidade (Codcidade, Nomecidade, cdestado)
 values ('2','Sorocaba','SP');
 
-alter table cidade drop 
+insert into cidade (Codcidade, Nomecidade, cdestado)
+values ('5', 'Arraial do Cabo','RJ');
+
+insert into cidade (Codcidade, Nomecidade, cdestado)
+values ('6', 'Angra dos Reis','RJ');
+
+insert into cidade (Codcidade, Nomecidade, cdestado)
+values ('7', 'Belo Horizonte','MG');
+
+insert into cidade (Codcidade, Nomecidade, cdestado)
+values ('8', 'Poços de Caldas','MG');
+
+insert into cidade (Codcidade, Nomecidade, cdestado)
+values ('9', 'Florianópolis','SC');
+
+insert into cidade (Codcidade, Nomecidade, cdestado)
+values ('10', 'Blumenau','SC');
+
+insert into cidade (Codcidade, Nomecidade, cdestado)
+values ('11', 'Campinas', 'SP');
+
+insert into cidade (Codcidade, Nomecidade, cdestado)
+values ('12', 'Itu', 'NN');
+
+insert into cidade (Codcidade, Nomecidade, cdestado)
+values ('13', 'Itapira', 'NN');
+
+Update Cidade Set cdestado='SP' where cdestado='NN';
+
+Delete from cidade where Nomecidade='Itapira';
+
+Update estado Set Nomeestado='Paraná' where cdestado='PR';
+
+Update estado Set Nomeestado='São Paulo' where cdestado='SP';
 
 select*
 
@@ -117,6 +158,10 @@ drop table Cliente;
 drop table Cidade;
 
 drop table NotaFiscal;
+
+select*
+
+from estado;
 
 
 /*delete from cidade where cod_estado like '1'*/
