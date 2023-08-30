@@ -1,6 +1,6 @@
 create table Cliente(
 
-Cod_Cli int constraint Pk_Cliente primary key not null,
+Cod_Cli int constraint Pk_Cliente primary key not null, /*Pk_CLiente é o nome da chave que foi dado*/
 
 Nome_Cli varchar(40) not null,
 
