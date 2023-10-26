@@ -206,11 +206,8 @@ from FILME
 /*20. Mostre a quantidade de filme que a locadora possui por categoria.*/
 
 Select NOME_CATEGORIA, COUNT(*)
-from CATEGORIA
-where 
-group by
+from CATEGORIA, FILME
+where FILME.COD_CATEGORIA = CATEGORIA.COD_CATEGORIA
+group by CATEGORIA.NOME_CATEGORIA
 
-Select * from LOCACOES
-Select * from CLIENTES
-Select * from CATEGORIA
-Select * from FILME
+
