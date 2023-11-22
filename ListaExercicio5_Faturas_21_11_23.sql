@@ -121,24 +121,69 @@ JOIN CLIENTE C on F.codcliente = C.codcliente
 ORDER BY C.nome
 
 --2) Selecione todos os produtos (código, nome, preço, nome do fornecedor e saldo por ordem de nome do produto).
+
+Select codproduto, descricao, preco, nomeforn, saldo
+from produto p 
+inner join fornecedor f on p.codforn = f.codforn
+order by p.descricao
+
+
+--3) Selecione número da fatura e seu valor total.
+
+Select f.nrfatura, qtde * valor
+from fatura f
+inner join itens_fatura i on f.nrfatura = i.nrfatura
+
+--4) Selecione a quantidade de produtos por nome de fornecedor
+
+Select f.nomeforn, count(p.codforn)
+from produto p
+inner join fornecedor f on f.codforn = p.codforn
+GROUP BY f.nomeforn
+
+--5) Selecione a quantidade de itens por número de fatura
+
+Select i.nrfatura, count(i.qtde) as 'Quantidade de itens'
+from itens_fatura i
+group by i.nrfatura
+
+--6) Selecione o valor total comprado por cada cliente. Exibir nome do cliente e valor
+
+select c.nome, sum(valor) as 'Valor total gasto'
+from cliente c
+inner join fatura f on c.codcliente = f.codcliente 
+inner join itens_fatura i on i.nrfatura = f.nrfatura
+group by c.nome
+
+--7) Selecione quantidade de clientes por área.
+
+Select c.area as 'Area', COUNT(c.area) as 'Quantidade de produtos'
+from cliente c
+group by c.area
+
+--8) Selecione a quantidade de produtos por fornecedor.
+
+select p.codforn, count(p.codforn)
+from produto p
+inner join fornecedor f on f.codforn = p.codforn
+group by p.codforn
+
+--9) Selecione a média dos valores faturados dos produtos.
+
+select AVG(i.valor) as 'Média dos valores faturados dos produtos'
+from itens_fatura i
+inner join fatura f on f.nrfatura = i.nrfatura
+inner join produto p on p.codproduto = i.codproduto
+
+--10) Selecione todas as faturas que tenham mais que 2 itens.
+
+select f.nrfatura
+from fatura f
+inner join itens_fatura i on i.qtde > 2
+group by f.nrfatura
+
 select * from cliente
 select * from fatura
 select * from fornecedor
 select * from itens_fatura
 select * from produto
-
---3) Selecione número da fatura e seu valor total.
-
---4) Selecione a quantidade de produtos por nome de fornecedor
-
---5) Selecione a quantidade de itens por número de fatura
-
---6) Selecione o valor total comprado por cada cliente. Exibir nome do cliente e valor
-
---7) Selecione quantidade de clientes por área.
-
---8) Selecione a quantidade de produtos por fornecedor.
-
---9) Selecione a média dos valores faturados dos produtos.
-
---10) Selecione todas as faturas que tenham mais que 2 itens.
